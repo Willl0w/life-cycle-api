@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 function romanToNumber(roman) {
   const romanNumbers = {
@@ -30,12 +32,16 @@ function romanToNumber(roman) {
     const current = romanNumbers[roman[i]];
     const next = romanNumbers[roman[i + 1]];
 
+    console.log("Current:", current, "Next:", next);
+
     if (next && current < next) {
       number -= current;
     } else {
       number += current;
     }
   }
+
+  console.log("Final Number:", number);
 
   return number;
 }
