@@ -26,7 +26,6 @@ function romanToNumber(roman) {
   };
 
   let number = 0;
-  roman = roman.toUpperCase();
 
   for (let i = 0; i < roman.length; i++) {
     const current = romanNumbers[roman[i]];
