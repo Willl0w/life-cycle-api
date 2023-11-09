@@ -23,6 +23,7 @@ function romanToNumber(roman) {
     V: 5,
     IV: 4,
     I: 1,
+    O: 0,
   };
 
   let number = 0;
@@ -54,7 +55,7 @@ app.post("/convert", (req, res) => {
       .json({ error: "Missing Roman numeral in the request body." });
   }
 
-  const result = romanToNumber(roman);
+  const result = romanToNumber(roman.toUpperCase());
   res.json({ result });
 });
 
